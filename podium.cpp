@@ -58,8 +58,8 @@ void Podium::init()
     this->initLabels();
 
     this->firstGrid->addWidget(this->first);
-    this->mainGrid->addLayout(this->firstGrid, 0, 0, 0);
-    this->mainGrid->addLayout(this->secondThirdGrid, 1, 0, 0);
+    this->mainGrid->addLayout(this->firstGrid, 0, 0);
+    this->mainGrid->addLayout(this->secondThirdGrid, 1, 0);
     this->window->setLayout(this->mainGrid);
     this->window->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
@@ -100,7 +100,7 @@ void Podium::showPodium()
     {
         this->second->setStyleSheet(this->getLabelColorString(1));
         this->second->setText(QString("2. %1<br>%2").arg(this->players[1].getName()).arg(this->players[1].getPoints()));
-        this->secondThirdGrid->addWidget(this->second, 1, 0, 0);
+        this->secondThirdGrid->addWidget(this->second, 1, 0);
     }
     else
         this->second->setVisible(false);
@@ -109,7 +109,7 @@ void Podium::showPodium()
     {
         this->third->setStyleSheet(this->getLabelColorString(2));
         this->third->setText(QString("3. %1<br>%2").arg(this->players[2].getName()).arg(this->players[2].getPoints()));
-        this->secondThirdGrid->addWidget(this->third, 1, 1, 0);
+        this->secondThirdGrid->addWidget(this->third, 1, 1);
     }
     else
     {

@@ -11,15 +11,15 @@
 #define UI_EDITOR_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QGridLayout>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLineEdit>
-#include <QtGui/QPushButton>
-#include <QtGui/QWidget>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -158,8 +158,8 @@ public:
 
     void retranslateUi(QDialog *Editor)
     {
-        Editor->setWindowTitle(QApplication::translate("Editor", "Editor", 0, QApplication::UnicodeUTF8));
-        save->setText(QApplication::translate("Editor", "Save", 0, QApplication::UnicodeUTF8));
+        Editor->setWindowTitle(QApplication::translate("Editor", "Editor", 0));
+        save->setText(QApplication::translate("Editor", "Save", 0));
     } // retranslateUi
 
 };

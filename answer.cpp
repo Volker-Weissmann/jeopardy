@@ -47,7 +47,7 @@ Answer::Answer(QWidget *parent, QString file, int round, Player *players, int pl
 {
     ui->setupUi(this);
 
-    this->time = new QTime();
+    this->time = new QElapsedTimer();
     this->time->start();
     timer = new QTimer();
     timer->setInterval(1*1000);
@@ -57,9 +57,11 @@ Answer::Answer(QWidget *parent, QString file, int round, Player *players, int pl
     this->hideButtons();
     ui->graphicsView->setVisible(false);
     ui->videoPlayer->setVisible(false);
+    video = new QMediaPlayer();
+    video->setVideoOutput(ui->videoPlayer);
 
     if(sound)
-        this->music = Phonon::createPlayer(Phonon::NoCategory, Phonon::MediaSource("sound/jeopardy.wav"));
+        this->music = new QSound("sound/jeopardy.wav");
 
     this->isVideo = false;
 }
@@ -207,7 +209,7 @@ void Answer::processSound(QString *answer)
     this->prependDir(answer);
 
     this->sound = true;
-    this->music = Phonon::createPlayer(Phonon::NoCategory, Phonon::MediaSource(*answer));
+    this->music = new QSound(*answer);
     this->music->play();
     QTimer::singleShot(30000, this->music, SLOT(stop()));
 }
@@ -217,9 +219,10 @@ void Answer::processVideo(QString *answer)
     this->isVideo = true;
     this->prependDir(answer);
 
+    video->setMedia(QMediaContent(*answer));
     ui->videoPlayer->setVisible(true);
-    ui->videoPlayer->play(*answer);
-    QTimer::singleShot(30000, ui->videoPlayer, SLOT(stop()));
+    video->play();
+    QTimer::singleShot(30000, video, SLOT(stop()));
 }
 
 void Answer::processText(QString *answer)
@@ -244,10 +247,10 @@ void Answer::keyPressEvent(QKeyEvent *event)
     {
         if(this->isVideo == true)
         {
-            ui->videoPlayer->stop();
-            ui->videoPlayer->seek(0);
-            QTimer::singleShot(100, ui->videoPlayer, SLOT(play()));
-            QTimer::singleShot(30000, ui->videoPlayer, SLOT(stop()));
+            video->stop();
+            video->setPosition(0);
+            QTimer::singleShot(100, video, SLOT(play()));
+            QTimer::singleShot(30000, video, SLOT(stop()));
         }
         else
         {
@@ -281,7 +284,7 @@ void Answer::keyPressEvent(QKeyEvent *event)
 
 void Answer::processKeypress(int player)
 {
-    if(this->time->elapsed() < this->time->msec() + 31000)
+    if(this->time->elapsed() < this->time->msecsSinceReference() + 31000)
     {
         this->currentPlayer = this->players[player];
         ui->currentPlayer->setText(this->currentPlayer.getName());

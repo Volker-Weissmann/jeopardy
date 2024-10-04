@@ -50,9 +50,8 @@ Todo
 Software used
 -------------
 
-* gcc 4.7.0
-* Qt 4.8.1
-* phonon
+* gcc 14.2.1
+* Qt 5.15.14
 
 Install
 -------

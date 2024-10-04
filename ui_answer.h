@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'answer.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.5
+** Created by: Qt User Interface Compiler version 5.15.14
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,15 +10,13 @@
 #define UI_ANSWER_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QGraphicsView>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
-#include <phonon/videoplayer.h>
+#include <QtGui/QIcon>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
+#include <qvideowidget.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -32,7 +30,7 @@ public:
     QLabel *currentPlayer;
     QPushButton *buttonCancel;
     QGraphicsView *graphicsView;
-    Phonon::VideoPlayer *videoPlayer;
+    QVideoWidget *videoPlayer;
     QLabel *time;
 
     void setupUi(QDialog *Answer)
@@ -118,7 +116,7 @@ public:
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
         graphicsView->setGeometry(QRect(1, 1, 997, 531));
         graphicsView->viewport()->setProperty("cursor", QVariant(QCursor(Qt::WhatsThisCursor)));
-        videoPlayer = new Phonon::VideoPlayer(Answer);
+        videoPlayer = new QVideoWidget(Answer);
         videoPlayer->setObjectName(QString::fromUtf8("videoPlayer"));
         videoPlayer->setGeometry(QRect(9, 9, 981, 511));
         videoPlayer->setCursor(QCursor(Qt::WhatsThisCursor));
@@ -137,13 +135,13 @@ public:
 
     void retranslateUi(QDialog *Answer)
     {
-        Answer->setWindowTitle(QApplication::translate("Answer", "Jeopardy", 0, QApplication::UnicodeUTF8));
-        buttonRight->setText(QApplication::translate("Answer", "Right", 0, QApplication::UnicodeUTF8));
-        buttonEnd->setText(QApplication::translate("Answer", "End", 0, QApplication::UnicodeUTF8));
-        buttonWrong->setText(QApplication::translate("Answer", "Wrong", 0, QApplication::UnicodeUTF8));
-        answer->setText(QApplication::translate("Answer", "listen...", 0, QApplication::UnicodeUTF8));
-        currentPlayer->setText(QApplication::translate("Answer", "currentPlayer", 0, QApplication::UnicodeUTF8));
-        buttonCancel->setText(QApplication::translate("Answer", "Cancel", 0, QApplication::UnicodeUTF8));
+        Answer->setWindowTitle(QCoreApplication::translate("Answer", "Jeopardy", nullptr));
+        buttonRight->setText(QCoreApplication::translate("Answer", "Right", nullptr));
+        buttonEnd->setText(QCoreApplication::translate("Answer", "End", nullptr));
+        buttonWrong->setText(QCoreApplication::translate("Answer", "Wrong", nullptr));
+        answer->setText(QCoreApplication::translate("Answer", "listen...", nullptr));
+        currentPlayer->setText(QCoreApplication::translate("Answer", "currentPlayer", nullptr));
+        buttonCancel->setText(QCoreApplication::translate("Answer", "Cancel", nullptr));
         time->setText(QString());
     } // retranslateUi
 

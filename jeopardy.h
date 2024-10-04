@@ -34,7 +34,7 @@
 #include <QRegExp>
 #include <QKeyEvent>
 #include <QWidget>
-#include <phonon/mediaobject.h>
+#include <QSound>
 #include <gamefield.h>
 #include <player.h>
 
@@ -69,7 +69,7 @@ private:
     QGridLayout *grid;
     QPushButton *buttons[NUMBER_ROUNDS];
     Player *players;
-    Phonon::MediaObject *music;
+    QSound *music;
     GameField *gameField;
 
     void initMenu();

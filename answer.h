@@ -29,15 +29,18 @@
 #ifndef ANSWER_H
 #define ANSWER_H
 
+#include <QElapsedTimer>
 #include <QKeyEvent>
 #include <QSound>
 #include <QFile>
 #include <QDir>
+#include <QMediaContent>
+#include <QMediaPlayer>
 #include <QPixmap>
+#include <QTextStream>
 #include <QTimer>
 #include <QTime>
 #include <QGraphicsScene>
-#include <phonon/mediaobject.h>
 #include <doublejeopardy.h>
 
 #define NUMBER_MAX_PLAYERS 9
@@ -81,11 +84,12 @@ private:
     bool doubleJeopardy;
     QString result;
     QString fileString;
-    QTime *time;
+    QElapsedTimer *time;
     QTimer *timer;
     Player *players;
     Player currentPlayer;
-    Phonon::MediaObject *music;
+    QSound *music;
+    QMediaPlayer *video;
     DoubleJeopardy *dj;
 
     void keyPressEvent(QKeyEvent *event);

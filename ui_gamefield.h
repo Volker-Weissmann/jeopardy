@@ -11,13 +11,13 @@
 #define UI_GAMEFIELD_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
-#include <QtGui/QWidget>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -240,43 +240,43 @@ public:
 
     void retranslateUi(QWidget *gameField)
     {
-        gameField->setWindowTitle(QApplication::translate("gameField", "Jeopardy", 0, QApplication::UnicodeUTF8));
-        button_4_500->setText(QApplication::translate("gameField", "500", 0, QApplication::UnicodeUTF8));
-        button_5_300->setText(QApplication::translate("gameField", "300", 0, QApplication::UnicodeUTF8));
-        button_1_400->setText(QApplication::translate("gameField", "400", 0, QApplication::UnicodeUTF8));
-        category4->setText(QApplication::translate("gameField", "cat4", 0, QApplication::UnicodeUTF8));
-        button_3_300->setText(QApplication::translate("gameField", "300", 0, QApplication::UnicodeUTF8));
-        button_4_400->setText(QApplication::translate("gameField", "400", 0, QApplication::UnicodeUTF8));
-        button_1_300->setText(QApplication::translate("gameField", "300", 0, QApplication::UnicodeUTF8));
-        button_5_500->setText(QApplication::translate("gameField", "500", 0, QApplication::UnicodeUTF8));
-        button_4_200->setText(QApplication::translate("gameField", "200", 0, QApplication::UnicodeUTF8));
-        button_4_300->setText(QApplication::translate("gameField", "300", 0, QApplication::UnicodeUTF8));
-        category3->setText(QApplication::translate("gameField", "cat3", 0, QApplication::UnicodeUTF8));
-        button_1_500->setText(QApplication::translate("gameField", "500", 0, QApplication::UnicodeUTF8));
-        button_1_100->setText(QApplication::translate("gameField", "100", 0, QApplication::UnicodeUTF8));
-        category2->setText(QApplication::translate("gameField", "cat2", 0, QApplication::UnicodeUTF8));
-        button_3_400->setText(QApplication::translate("gameField", "400", 0, QApplication::UnicodeUTF8));
-        button_3_500->setText(QApplication::translate("gameField", "500", 0, QApplication::UnicodeUTF8));
-        button_2_500->setText(QApplication::translate("gameField", "500", 0, QApplication::UnicodeUTF8));
-        category1->setText(QApplication::translate("gameField", "cat1", 0, QApplication::UnicodeUTF8));
-        button_1_200->setText(QApplication::translate("gameField", "200", 0, QApplication::UnicodeUTF8));
-        category5->setText(QApplication::translate("gameField", "cat5", 0, QApplication::UnicodeUTF8));
-        button_3_200->setText(QApplication::translate("gameField", "200", 0, QApplication::UnicodeUTF8));
-        button_3_100->setText(QApplication::translate("gameField", "100", 0, QApplication::UnicodeUTF8));
-        button_2_300->setText(QApplication::translate("gameField", "300", 0, QApplication::UnicodeUTF8));
-        button_2_400->setText(QApplication::translate("gameField", "400", 0, QApplication::UnicodeUTF8));
-        button_5_100->setText(QApplication::translate("gameField", "100", 0, QApplication::UnicodeUTF8));
-        button_5_400->setText(QApplication::translate("gameField", "400", 0, QApplication::UnicodeUTF8));
-        button_4_100->setText(QApplication::translate("gameField", "100", 0, QApplication::UnicodeUTF8));
-        button_2_100->setText(QApplication::translate("gameField", "100", 0, QApplication::UnicodeUTF8));
-        button_5_200->setText(QApplication::translate("gameField", "200", 0, QApplication::UnicodeUTF8));
-        button_2_200->setText(QApplication::translate("gameField", "200", 0, QApplication::UnicodeUTF8));
-        category6->setText(QApplication::translate("gameField", "cat6", 0, QApplication::UnicodeUTF8));
-        button_6_200->setText(QApplication::translate("gameField", "200", 0, QApplication::UnicodeUTF8));
-        button_6_100->setText(QApplication::translate("gameField", "100", 0, QApplication::UnicodeUTF8));
-        button_6_400->setText(QApplication::translate("gameField", "400", 0, QApplication::UnicodeUTF8));
-        button_6_500->setText(QApplication::translate("gameField", "500", 0, QApplication::UnicodeUTF8));
-        button_6_300->setText(QApplication::translate("gameField", "300", 0, QApplication::UnicodeUTF8));
+        gameField->setWindowTitle(QApplication::translate("gameField", "Jeopardy", 0));
+        button_4_500->setText(QApplication::translate("gameField", "500", 0));
+        button_5_300->setText(QApplication::translate("gameField", "300", 0));
+        button_1_400->setText(QApplication::translate("gameField", "400", 0));
+        category4->setText(QApplication::translate("gameField", "cat4", 0));
+        button_3_300->setText(QApplication::translate("gameField", "300", 0));
+        button_4_400->setText(QApplication::translate("gameField", "400", 0));
+        button_1_300->setText(QApplication::translate("gameField", "300", 0));
+        button_5_500->setText(QApplication::translate("gameField", "500", 0));
+        button_4_200->setText(QApplication::translate("gameField", "200", 0));
+        button_4_300->setText(QApplication::translate("gameField", "300", 0));
+        category3->setText(QApplication::translate("gameField", "cat3", 0));
+        button_1_500->setText(QApplication::translate("gameField", "500", 0));
+        button_1_100->setText(QApplication::translate("gameField", "100", 0));
+        category2->setText(QApplication::translate("gameField", "cat2", 0));
+        button_3_400->setText(QApplication::translate("gameField", "400", 0));
+        button_3_500->setText(QApplication::translate("gameField", "500", 0));
+        button_2_500->setText(QApplication::translate("gameField", "500", 0));
+        category1->setText(QApplication::translate("gameField", "cat1", 0));
+        button_1_200->setText(QApplication::translate("gameField", "200", 0));
+        category5->setText(QApplication::translate("gameField", "cat5", 0));
+        button_3_200->setText(QApplication::translate("gameField", "200", 0));
+        button_3_100->setText(QApplication::translate("gameField", "100", 0));
+        button_2_300->setText(QApplication::translate("gameField", "300", 0));
+        button_2_400->setText(QApplication::translate("gameField", "400", 0));
+        button_5_100->setText(QApplication::translate("gameField", "100", 0));
+        button_5_400->setText(QApplication::translate("gameField", "400", 0));
+        button_4_100->setText(QApplication::translate("gameField", "100", 0));
+        button_2_100->setText(QApplication::translate("gameField", "100", 0));
+        button_5_200->setText(QApplication::translate("gameField", "200", 0));
+        button_2_200->setText(QApplication::translate("gameField", "200", 0));
+        category6->setText(QApplication::translate("gameField", "cat6", 0));
+        button_6_200->setText(QApplication::translate("gameField", "200", 0));
+        button_6_100->setText(QApplication::translate("gameField", "100", 0));
+        button_6_400->setText(QApplication::translate("gameField", "400", 0));
+        button_6_500->setText(QApplication::translate("gameField", "500", 0));
+        button_6_300->setText(QApplication::translate("gameField", "300", 0));
     } // retranslateUi
 
 };

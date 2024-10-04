@@ -11,13 +11,13 @@
 #define UI_JEOPARDY_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QHeaderView>
-#include <QtGui/QMainWindow>
-#include <QtGui/QPushButton>
-#include <QtGui/QWidget>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -69,11 +69,11 @@ public:
 
     void retranslateUi(QMainWindow *Jeopardy)
     {
-        Jeopardy->setWindowTitle(QApplication::translate("Jeopardy", "Jeopardy", 0, QApplication::UnicodeUTF8));
-        buttonRound1->setText(QApplication::translate("Jeopardy", "Round 1", 0, QApplication::UnicodeUTF8));
-        buttonRound2->setText(QApplication::translate("Jeopardy", "Round 2", 0, QApplication::UnicodeUTF8));
-        buttonRound3->setText(QApplication::translate("Jeopardy", "Round 3", 0, QApplication::UnicodeUTF8));
-        buttonRound4->setText(QApplication::translate("Jeopardy", "Round 4", 0, QApplication::UnicodeUTF8));
+        Jeopardy->setWindowTitle(QApplication::translate("Jeopardy", "Jeopardy", 0));
+        buttonRound1->setText(QApplication::translate("Jeopardy", "Round 1", 0));
+        buttonRound2->setText(QApplication::translate("Jeopardy", "Round 2", 0));
+        buttonRound3->setText(QApplication::translate("Jeopardy", "Round 3", 0));
+        buttonRound4->setText(QApplication::translate("Jeopardy", "Round 4", 0));
     } // retranslateUi
 
 };

@@ -83,7 +83,7 @@ void Jeopardy::prepareButton(int i)
     this->buttons[i]->setText(QString("Round %1").arg(i + 1));
     this->buttons[i]->setFont(QFont("Helvetica [Cronyx]", 13, QFont::Bold, false));
     this->buttons[i]->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    this->grid->addWidget(this->buttons[i], 0, i, 0);
+    this->grid->addWidget(this->buttons[i], 0, i);
     this->grid->setSpacing(0);
     this->grid->setMargin(0);
     connect(this->buttons[i], SIGNAL(clicked()), this->buttons[i], SLOT(hide()));
@@ -251,7 +251,7 @@ bool Jeopardy::initPlayers()
         if(!ok)
             break;
 
-        this->players[this->playerNr].setKey(key.at(0).toAscii());
+        this->players[this->playerNr].setKey(key.at(0).toLatin1());
         keyList.removeOne(key);
 
         color = QInputDialog::getItem(this, "Choose color ", "Color:", colorList, 0, false, &ok);

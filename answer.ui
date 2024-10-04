@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
+<ui version="5.0">
  <class>Answer</class>
  <widget class="QDialog" name="Answer">
   <property name="geometry">
@@ -244,7 +244,7 @@
     <cursorShape>WhatsThisCursor</cursorShape>
    </property>
   </widget>
-  <widget class="Phonon::VideoPlayer" name="videoPlayer">
+  <widget class="QVideoWidget" name="videoPlayer">
    <property name="geometry">
     <rect>
      <x>9</x>
@@ -279,13 +279,6 @@
    </property>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>Phonon::VideoPlayer</class>
-   <extends>QWidget</extends>
-   <header location="global">phonon/videoplayer.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
