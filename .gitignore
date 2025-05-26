@@ -1,3 +1,6 @@
 *.o
 moc_*
 jeopardy
+Makefile
+.qmake.stash
+gameStates/backups/backup_*.jgs
