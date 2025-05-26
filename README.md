@@ -1,20 +1,17 @@
-Jeopardy
-========
+# Jeopardy
 
-* Author:	Christian Lange (Christian_Lange@hotmail.com)
-* Date:		06. February 2014
-* Version:	0.9.6 Stable
-* Github:	https://github.com/chlange/jeopardy
-* Homepage:	http://ganz-sicher.net/chlange
-* License:	New BSD License (3-clause BSD license)
+* Original Author:  Christian Lange (Christian_Lange@hotmail.com)
+* Date:             06. February 2014
+* Version:          0.9.6 Stable
+* Github:           https://github.com/Volker-Weissmann/jeopardy
+* Homepage:         http://ganz-sicher.net/chlange
+* License:          New BSD License (3-clause BSD license)
 
-Description
------------
+## Description
 
 * Implementation of well known Jeopardy! quiz show in C++ with Qt.
 
-Features
---------
+## Features
 
 * up to 9 players
 * sound
@@ -37,35 +34,33 @@ Features
 	* Press Shift to restart sound or video
 * double jeopardy questions 
 	* see answers/README or wiki for further instructions
-* maybe more...
 
+## Todo
 
-Todo
-----
+* video playback on NixOS
 
-* better score system
-* smoother design
-* ...little here and there
+## How to build and run
 
-Software used
--------------
+Beware that it will not work if you cd into different directory.
 
-* gcc 14.2.1
-* Qt 5.15.14
+### ArchLinux
+* `pacman -S qt5-base qt5-multimedia qt5-xmlpatterns`
+* `qmake-qt5`
+* `make -j`
+* `./jeopardy`
 
-Install
--------
+### NixOS
+* `nix-shell -p qt5Full`
+* `qmake`
+* `make -j`
+* `./jeopardy`
 
-Linux:
-* Install qt4 SDK and libphonon-dev
-* qmake (or qmake-qt4)
-* make
+I could not get video playback to work on NixOS. Images, Sound and the rest works though.
 
-Windows:
-* [Follow me](https://github.com/chlange/jeopardy/wiki/Windows)
+### Windows
+* I do not now if it works on Windows, all I could find was [this old link](https://github.com/chlange/jeopardy/wiki/Windows)
 
-Play
-----
+## Play
 
 * Edit answers/roundnumber.jrf
 	* see answers/README or wiki for further instructions
@@ -73,8 +68,7 @@ Play
 * Enter names, keys and colors of players
 * Select question
 
-Screenshots
------------
+## Screenshots
 
 Main:
 
@@ -88,7 +82,7 @@ Colored game field:
 
 ![](http://i.imgur.com/AwaO8gd.png)
 
-Bugs? Feature requests? Have some Beer?
-------------------------------------------
+## Bugs? Feature requests? Have some Beer?
 
 Don't hesitate to contact me!
+
