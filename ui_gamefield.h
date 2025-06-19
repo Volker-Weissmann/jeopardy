@@ -76,7 +76,7 @@ public:
         button_4_500->setObjectName(QString::fromUtf8("button_4_500"));
         button_4_500->setGeometry(QRect(600, 480, 198, 107));
         QFont font;
-        font.setFamily(QString::fromUtf8("Andale Mono"));
+        font.setFamily(QString::fromUtf8(MY_FONT));
         font.setPointSize(18);
         button_4_500->setFont(font);
         button_5_300 = new QPushButton(gameField);
@@ -91,7 +91,7 @@ public:
         category4->setObjectName(QString::fromUtf8("category4"));
         category4->setGeometry(QRect(600, 0, 200, 40));
         QFont font1;
-        font1.setFamily(QString::fromUtf8("Andale Mono"));
+        font1.setFamily(QString::fromUtf8(MY_FONT));
         font1.setPointSize(14);
         font1.setBold(true);
         font1.setWeight(75);

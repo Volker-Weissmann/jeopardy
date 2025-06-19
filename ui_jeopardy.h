@@ -42,10 +42,10 @@ public:
         buttonRound1->setObjectName(QString::fromUtf8("buttonRound1"));
         buttonRound1->setGeometry(QRect(0, 0, 151, 81));
         QFont font;
-        font.setFamily(QString::fromUtf8("Andale Mono"));
+        font.setFamily(QString::fromUtf8(MY_FONT));
         font.setPointSize(18);
         font.setBold(true);
-        font.setWeight(75);
+        font.setWeight(QFont::Weight(75));
         buttonRound1->setFont(font);
         buttonRound1->setFlat(false);
         buttonRound2 = new QPushButton(centralWidget);

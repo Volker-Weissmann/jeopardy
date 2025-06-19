@@ -26,7 +26,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
- #include <QEvent>
+#include <QEvent>
+#include "jeopardy.h"
 #include "doublejeopardy.h"
 //#include "ui_doublejeopardy.h"
 
@@ -104,18 +105,23 @@ void DoubleJeopardy::setLabels()
         playerList << this->players[i].getName();
 
     this->playerComboBox->addItems(playerList);
+    this->playerComboBox->setFont(QFont(MY_FONT, 20, QFont::Bold, false));
     this->playerComboBox->setCurrentIndex(this->currentPlayerId + 1);
 
     this->minLabel->setText(QString("Min: %1").arg(this->min));
+    this->minLabel->setFont(QFont(MY_FONT, 20, QFont::Bold, false));
 
     this->pointsSpinBox->setMinimum(-20000);
     this->pointsSpinBox->setMaximum(20000);
     this->pointsSpinBox->setSingleStep(50);
+    this->pointsSpinBox->setFont(QFont(MY_FONT, 20, QFont::Bold, false));
     this->pointsSpinBox->setValue(this->max);
 
     this->maxLabel->setText(QString("Max: %1").arg(this->max));
+    this->maxLabel->setFont(QFont(MY_FONT, 20, QFont::Bold, false));
 
     this->startButton->setText("Save");
+    this->startButton->setFont(QFont(MY_FONT, 20, QFont::Bold, false));
     QObject::connect(this->startButton, SIGNAL(clicked()), this, SLOT(on_button_clicked()));
 }
 
