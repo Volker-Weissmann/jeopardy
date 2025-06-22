@@ -35,7 +35,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QSpinBox>
-#include <player.h>
+#include "player.h"
 
 #define DOUBLE_JEOPARDY_MIN_POINTS 50
 

@@ -58,8 +58,8 @@ void Podium::init()
     this->initLabels();
 
     this->firstGrid->addWidget(this->first);
-    this->mainGrid->addLayout(this->firstGrid, 0, 0);
-    this->mainGrid->addLayout(this->secondThirdGrid, 1, 0);
+    this->mainGrid->addLayout(this->firstGrid, 0, 0, Qt::AlignCenter);
+    this->mainGrid->addLayout(this->secondThirdGrid, 1, 0, Qt::AlignCenter);
     this->window->setLayout(this->mainGrid);
     this->window->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
@@ -100,7 +100,7 @@ void Podium::showPodium()
     {
         this->second->setStyleSheet(this->getLabelColorString(1));
         this->second->setText(QString("2. %1<br>%2").arg(this->players[1].getName()).arg(this->players[1].getPoints()));
-        this->secondThirdGrid->addWidget(this->second, 1, 0);
+        this->secondThirdGrid->addWidget(this->second, 1, 0, Qt::AlignCenter);
     }
     else
         this->second->setVisible(false);
@@ -109,7 +109,7 @@ void Podium::showPodium()
     {
         this->third->setStyleSheet(this->getLabelColorString(2));
         this->third->setText(QString("3. %1<br>%2").arg(this->players[2].getName()).arg(this->players[2].getPoints()));
-        this->secondThirdGrid->addWidget(this->third, 1, 1);
+        this->secondThirdGrid->addWidget(this->third, 1, 1, Qt::AlignCenter);
     }
     else
     {
@@ -210,7 +210,7 @@ void Podium::saveScore()
                     if(line.startsWith(name))
                     {
                             //name      rounds      total      avg
-                            results = line.split("  ", QString::SkipEmptyParts);
+                            results = line.split("  ", Qt::SkipEmptyParts);
                             rounds = results[1].toInt() + 1;
                             total = results[2].toInt() + this->players[i].getPoints();
                             avg = ceil(total / rounds);
@@ -235,7 +235,7 @@ void Podium::writeScore(QString name, int rounds, int total, int avg)
     QTextStream out(this->file);
     out.seek(this->file->size());
     out << qSetFieldWidth(15)
-        << left
+        << Qt::left
         << QString("%1").arg(name)
         << QString("%1").arg(rounds)
         << QString("%1").arg(total)

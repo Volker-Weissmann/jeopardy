@@ -10,16 +10,16 @@
 #ifndef UI_DOUBLEJEOPARDY_H
 #define UI_DOUBLEJEOPARDY_H
 
-#include <QtCore/QVariant>
-#include <QtWidgets/QAction>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QComboBox>
-#include <QtWidgets/QDialog>
-#include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpinBox>
+#include <QVariant>
+#include <QAction>
+#include <QApplication>
+#include <QButtonGroup>
+#include <QComboBox>
+#include <QDialog>
+#include <QHeaderView>
+#include <QLabel>
+#include <QPushButton>
+#include <QSpinBox>
 
 QT_BEGIN_NAMESPACE
 
@@ -60,10 +60,10 @@ public:
 
     void retranslateUi(QDialog *DoubleJeopardy)
     {
-        DoubleJeopardy->setWindowTitle(QApplication::translate("DoubleJeopardy", "Double Jeopardy", 0));
-        min->setText(QApplication::translate("DoubleJeopardy", "Min", 0));
-        max->setText(QApplication::translate("DoubleJeopardy", "Max", 0));
-        button->setText(QApplication::translate("DoubleJeopardy", "Ok", 0));
+        DoubleJeopardy->setWindowTitle(QApplication::translate("DoubleJeopardy", "Double Jeopardy"));
+        min->setText(QApplication::translate("DoubleJeopardy", "Min"));
+        max->setText(QApplication::translate("DoubleJeopardy", "Max"));
+        button->setText(QApplication::translate("DoubleJeopardy", "Ok"));
     } // retranslateUi
 
 };

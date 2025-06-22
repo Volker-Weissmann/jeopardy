@@ -46,9 +46,9 @@
 #include <QShortcut>
 #include <QDateTime>
 #include <QGridLayout>
-#include <editor.h>
-#include <podium.h>
-#include <answer.h>
+#include "editor.h"
+#include "podium.h"
+#include "answer.h"
 
 #define WON "1"
 #define NUMBER_ANSWERS 5

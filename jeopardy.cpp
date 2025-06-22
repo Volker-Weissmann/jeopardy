@@ -27,7 +27,7 @@
  */
 
 #include "jeopardy.h"
-#include "ui_jeopardy.h"
+//#include "ui_jeopardy.h"
 
 Jeopardy::Jeopardy(QWidget *parent) :
     QMainWindow(parent),
@@ -83,9 +83,9 @@ void Jeopardy::prepareButton(int i)
     this->buttons[i]->setText(QString("Round %1").arg(i + 1));
     this->buttons[i]->setFont(QFont("Helvetica [Cronyx]", 13, QFont::Bold, false));
     this->buttons[i]->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    this->grid->addWidget(this->buttons[i], 0, i);
+    this->grid->addWidget(this->buttons[i], 0, i, Qt::AlignCenter);
     this->grid->setSpacing(0);
-    this->grid->setMargin(0);
+    this->grid->setContentsMargins(0, 0, 0, 0);
     connect(this->buttons[i], SIGNAL(clicked()), this->buttons[i], SLOT(hide()));
     connect(this->buttons[i], SIGNAL(clicked()), this, SLOT(initGameField()));
 }
@@ -276,7 +276,17 @@ void Jeopardy::deleteSound()
 {
     if(this->sound)
     {
+#if QT_VERSION_MAJOR == 6
+        this->musicPlayer->stop();
+        delete this->musicPlayer;
+#elif QT_VERSION_MAJOR == 5
         this->music->stop();
         delete this->music;
+#else
+        #error "Unsupported Qt Version"
+#endif
+
+        
+
     }
 }

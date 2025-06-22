@@ -30,13 +30,13 @@
 #define PODIUM_H
 
 #include <math.h>
-#include <player.h>
 #include <QGridLayout>
 #include <QFile>
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QTextStream>
 #include <QDebug>
+#include "player.h"
 
 namespace Ui {
     class Podium;

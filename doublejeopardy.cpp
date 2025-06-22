@@ -26,8 +26,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+ #include <QEvent>
 #include "doublejeopardy.h"
-#include "ui_doublejeopardy.h"
+//#include "ui_doublejeopardy.h"
 
 DoubleJeopardy::DoubleJeopardy(QWidget *parent, int min, int max, Player *players, int playerNr, int currentPlayer) :
     QDialog(parent), min(min), max(max), playerNr(playerNr), currentPlayerId(currentPlayer)

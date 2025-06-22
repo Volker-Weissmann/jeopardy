@@ -604,7 +604,9 @@ void GameField::openFileSaver(bool backup)
     QDateTime dateTime;
 
     if(backup == true)
-        fileName = QString("gameStates/backups/backup_%1_%2").arg(this->getRound()).arg(dateTime.currentDateTime().toTime_t());
+        fileName = QString("gameStates/backups/backup_%1_%2")
+                   .arg(this->getRound())
+                   .arg(QDateTime::currentDateTime().toSecsSinceEpoch());
     else
         fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "gameStates/", tr("Jeopardy Game State (*.jgs)"));
 

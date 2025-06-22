@@ -10,13 +10,13 @@
 #ifndef UI_PODIUM_H
 #define UI_PODIUM_H
 
-#include <QtCore/QVariant>
-#include <QtWidgets/QAction>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QDialog>
-#include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
+#include <QVariant>
+#include <QAction>
+#include <QApplication>
+#include <QButtonGroup>
+#include <QDialog>
+#include <QHeaderView>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 
@@ -85,7 +85,7 @@ public:
 
     void retranslateUi(QDialog *Podium)
     {
-        Podium->setWindowTitle(QApplication::translate("Podium", "Podium", 0));
+        Podium->setWindowTitle(QApplication::translate("Podium", "Podium"));
         third->setText(QString());
         second->setText(QString());
         first->setText(QString());

@@ -31,12 +31,11 @@
 
 #include <QMainWindow>
 #include <QInputDialog>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QKeyEvent>
 #include <QWidget>
-#include <QSound>
-#include <gamefield.h>
-#include <player.h>
+#include "gamefield.h"
+#include "player.h"
 
 #define NUMBER_ROUNDS 4
 #define NUMBER_MAX_PLAYERS 9
@@ -69,7 +68,16 @@ private:
     QGridLayout *grid;
     QPushButton *buttons[NUMBER_ROUNDS];
     Player *players;
+
+#if QT_VERSION_MAJOR == 6
+     QMediaPlayer* musicPlayer;
+     QAudioOutput* audioOutput;
+#elif QT_VERSION_MAJOR == 5
     QSound *music;
+#else
+    #error "Unsupported Qt Version"
+#endif
+
     GameField *gameField;
 
     void initMenu();

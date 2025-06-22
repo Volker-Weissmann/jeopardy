@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Jeopardy
+Exec=jeopardy
+Icon=jeopardy
+Categories=Game;Education;
+StartupNotify=true
+Terminal=false

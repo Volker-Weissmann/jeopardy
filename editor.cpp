@@ -26,8 +26,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <QEvent>
 #include "editor.h"
-#include "ui_editor.h"
 
 Editor::Editor(QWidget *parent, Player *players, int playerNr):
     QDialog(parent), playerNr(playerNr), players(players)

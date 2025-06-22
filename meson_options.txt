@@ -1,0 +1,1 @@
+option('qt_version', type: 'combo', value: 'auto', choices: ['auto', '5', '6'], description: 'Switch between Qt5 and Qt6')
