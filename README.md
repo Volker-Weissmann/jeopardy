@@ -7,11 +7,11 @@
 * Homepage:         http://ganz-sicher.net/chlange
 * License:          New BSD License (3-clause BSD license)
 
-## Description
+# Description
 
 * Implementation of well known Jeopardy! quiz show in C++ with Qt.
 
-## Features
+# Features
 
 * up to 9 players
 * sound
@@ -35,32 +35,50 @@
 * double jeopardy questions 
 	* see answers/README or wiki for further instructions
 
-## Todo
-
-* video playback on NixOS
-
-## How to build and run
+# How to build and run
 
 Beware that it will not work if you cd into different directory.
 
-### ArchLinux
-* `pacman -S qt5-base qt5-multimedia qt5-xmlpatterns`
-* `qmake-qt5`
-* `make -j`
-* `./jeopardy`
+## ArchLinux
 
-### NixOS
-* `nix-shell -p qt5Full`
-* `qmake`
-* `make -j`
-* `./jeopardy`
+### Using Qt6
 
-I could not get video playback to work on NixOS. Images, Sound and the rest works though.
+* `pacman -S meson qt6-base qt6-multimedia`
+* `meson setup bd -Dqt_version=6`
+* `ninja -C bd`
+* `./bd/jeopardy`
 
-### Windows
+### Using Qt5
+
+* `pacman -S meson qt5-base qt5-multimedia`
+* `meson setup bd -Dqt_version=5`
+* `ninja -C bd`
+* `./bd/jeopardy`
+
+## NixOS
+
+### Using Qt6
+
+* `nix-shell -p pkgs.qt6.full meson ninja`
+* `meson setup bd -Dqt_version=6`
+* `ninja -C bd`
+* `./bd/jeopardy`
+
+### Using Qt5
+
+Note: [Video Playback does not work when using Qt5 on NixOS. I'm sorry.](https://forum.qt.io/topic/162479/qmediaplayer-does-not-work-on-nixos/3)
+
+Note: If you install `qt5Full` and `pkgs.qt6.full`, then building with `-Dqt_version=5` will unfortunately not work.
+
+* `nix-shell -p qt5Full meson ninja`
+* `meson setup bd -Dqt_version=5`
+* `ninja -C bd`
+* `./bd/jeopardy`
+
+## Windows
 * I do not now if it works on Windows, all I could find was [this old link](https://github.com/chlange/jeopardy/wiki/Windows)
 
-## Play
+# Play
 
 * Edit answers/roundnumber.jrf
 	* see answers/README or wiki for further instructions
@@ -68,7 +86,7 @@ I could not get video playback to work on NixOS. Images, Sound and the rest work
 * Enter names, keys and colors of players
 * Select question
 
-## Screenshots
+# Screenshots
 
 Main:
 
@@ -82,7 +100,6 @@ Colored game field:
 
 ![](http://i.imgur.com/AwaO8gd.png)
 
-## Bugs? Feature requests? Have some Beer?
+# Bugs? Feature requests? Have some Beer?
 
 Don't hesitate to contact me!
-
