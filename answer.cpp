@@ -69,13 +69,11 @@ Answer::Answer(QWidget *parent, QString file, int round, Player *players, int pl
 #if QT_VERSION_MAJOR == 6
     this->musicPlayer = new QMediaPlayer(this);
     this->audioOutput = new QAudioOutput(this);
-    musicPlayer->setAudioOutput(audioOutput);
 
     QVideoWidget* videoWidget = findChild<QVideoWidget*>("videoPlayer");
     assert(videoWidget != nullptr);
     this->videoWidget = videoWidget;
     this->videoPlayer = new QMediaPlayer(this);
-    videoPlayer->setVideoOutput(videoWidget);
 
     videoWidget->setVisible(false);
 
@@ -191,8 +189,12 @@ void Answer::setAnswer(int category, int points)
 
     if(answer.contains(imgTag))
     {
-        if(this->sound)
+        if(this->sound){
+#if QT_VERSION_MAJOR == 6
+            this->musicPlayer->setAudioOutput(audioOutput);
+#endif
             get_musicplayer()->play();
+        }
 
         answer.remove(imgTag);
         answer = answer.trimmed();
@@ -212,8 +214,12 @@ void Answer::setAnswer(int category, int points)
     }
     else
     {
-        if(this->sound)
+        if(this->sound){
+#if QT_VERSION_MAJOR == 6
+            this->musicPlayer->setAudioOutput(audioOutput);
+#endif
             get_musicplayer()->play();
+        }
 
         this->processText(&answer);
     }
@@ -313,6 +319,7 @@ void Answer::processVideo(QString *answer)
     this->videoWidget->setVisible(true);
 
     this->videoPlayer->setVideoOutput(videoWidget);
+    this->videoPlayer->setAudioOutput(audioOutput);
     this->videoPlayer->setSource(QUrl::fromLocalFile(*answer));
     this->videoPlayer->play();
 
