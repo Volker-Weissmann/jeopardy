@@ -65,8 +65,9 @@ public:
     {
         if (gameField->objectName().isEmpty())
             gameField->setObjectName(QString::fromUtf8("gameField"));
-        gameField->resize(1200, 635);
-        gameField->setMinimumSize(QSize(998, 615));
+        gameField->resize(1920, 1046);
+        gameField->setMinimumSize(QSize(1920, 1046));
+        gameField->setMaximumSize(QSize(1920, 1046));
         gameField->setMouseTracking(false);
         gameField->setContextMenuPolicy(Qt::CustomContextMenu);
         QIcon icon;
@@ -209,28 +210,28 @@ public:
         button_2_200->setFont(font);
         category6 = new QLabel(gameField);
         category6->setObjectName(QString::fromUtf8("category6"));
-        category6->setGeometry(QRect(990, 0, 200, 40));
+        category6->setGeometry(QRect(1890, 0, 200, 40));
         category6->setFont(font1);
         category6->setAlignment(Qt::AlignCenter);
         button_6_200 = new QPushButton(gameField);
         button_6_200->setObjectName(QString::fromUtf8("button_6_200"));
-        button_6_200->setGeometry(QRect(1000, 150, 198, 107));
+        button_6_200->setGeometry(QRect(1200, 150, 198, 107));
         button_6_200->setFont(font);
         button_6_100 = new QPushButton(gameField);
         button_6_100->setObjectName(QString::fromUtf8("button_6_100"));
-        button_6_100->setGeometry(QRect(1000, 40, 198, 107));
+        button_6_100->setGeometry(QRect(1200, 40, 198, 107));
         button_6_100->setFont(font);
         button_6_400 = new QPushButton(gameField);
         button_6_400->setObjectName(QString::fromUtf8("button_6_400"));
-        button_6_400->setGeometry(QRect(1000, 370, 198, 107));
+        button_6_400->setGeometry(QRect(1200, 370, 198, 107));
         button_6_400->setFont(font);
         button_6_500 = new QPushButton(gameField);
         button_6_500->setObjectName(QString::fromUtf8("button_6_500"));
-        button_6_500->setGeometry(QRect(1000, 480, 198, 107));
+        button_6_500->setGeometry(QRect(1200, 480, 198, 107));
         button_6_500->setFont(font);
         button_6_300 = new QPushButton(gameField);
         button_6_300->setObjectName(QString::fromUtf8("button_6_300"));
-        button_6_300->setGeometry(QRect(1000, 260, 198, 107));
+        button_6_300->setGeometry(QRect(1200, 260, 198, 107));
         button_6_300->setFont(font);
 
         retranslateUi(gameField);

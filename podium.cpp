@@ -50,6 +50,7 @@ Podium::~Podium()
 void Podium::init()
 {
     this->window = new QWidget();
+    this->window->setGeometry(0, 0, 1920, 1046);
     this->mainGrid = new QGridLayout;
     this->firstGrid = new QGridLayout();
     this->secondThirdGrid = new QGridLayout();
@@ -74,8 +75,8 @@ void Podium::initLabels()
 
     this->first->setAlignment(Qt::AlignCenter);
     this->first->setFont(font);
-    this->first->setMinimumSize(650, 20);
-    this->first->setMaximumSize(650, 20);
+    this->first->setMinimumSize(650, 150);
+    this->first->setMaximumSize(650, 150);
     this->first->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     this->second->setAlignment(Qt::AlignCenter);
@@ -102,7 +103,7 @@ void Podium::showPodium()
     font.setBold(true);
     font.setPointSize(20);
 
-    this->first->setStyleSheet(this->getLabelColorString(Qt::AlignmentFlag(0)));
+    this->first->setStyleSheet(this->getLabelColorString(0));
     this->first->setFont(font);
     this->first->setFont(QFont(MY_FONT, 20, QFont::Bold, false));
     if(this->playerNr == 1)
@@ -133,8 +134,8 @@ void Podium::showPodium()
         this->third->setVisible(false);
     }
 
-    //if(this->playerNr > 1)
-    //    this->saveScore();
+    if(this->playerNr > 1)
+        this->saveScore();
 
     this->window->show();
 }
