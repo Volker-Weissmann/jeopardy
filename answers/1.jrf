@@ -31,6 +31,6 @@ Video-Examples
 Other-Examples
 100: ##comment##                        ## comment won't be shown ##
 200: [dj]answer2
-300: [dj]answer3                        ## [dj] indicates double jeopardy question ##
-400: [dj]amswer4                        ## [dj] opens menu where the player and points can be selected ##
+300: [dj][sound]1.wav                   ## [dj] indicates double jeopardy question ##
+400: [dj][video]1.mp4                   ## [dj] opens menu where the player and points can be selected ##
 500: [dj]answer5                        ## [dj] min. 50 and up to twice the points of the normal question ##

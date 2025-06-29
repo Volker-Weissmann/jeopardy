@@ -5,9 +5,10 @@ project('Jeopardy', 'cpp',
 
 qt_version = get_option('qt_version')
 
+qt_modules = ['Core', 'Gui', 'Widgets', 'Xml', 'Multimedia', 'MultimediaWidgets']
 
-qt6_dep = dependency('qt6', required: false)
-qt5_dep = dependency('qt5', required: false)
+qt6_dep = dependency('qt6', required: false, modules: qt_modules)
+qt5_dep = dependency('qt5', required: false, modules: qt_modules)
 
 if qt_version == 'auto'
   if qt6_dep.found()

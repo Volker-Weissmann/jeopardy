@@ -33,6 +33,8 @@
 #include <QDebug>
 #include "answer.h"
 
+#include <algorithm> // for std::min
+
 #define stringify(x) #x
 #define FILE2(a) stringify(ui_answer_qt ## a.h)
 #define FILE(a) FILE2(a)
@@ -123,7 +125,7 @@ void Answer::updateTime()
 {
     int seconds = 31 - this->time->elapsed() / 1000;
     if(seconds >= 0)
-        ui->time->setText(QString("%1").arg(seconds, 2));
+        ui->time->setText(QString("%1").arg(std::min(30, seconds), 2));
     else
         ui->time->setText(QString("Ended..."));
 }
@@ -361,8 +363,8 @@ void Answer::keyPressEvent(QKeyEvent *event)
         {
             this->videoPlayer->stop();
             this->videoPlayer->setPosition(0);
-            QTimer::singleShot(100, ui->videoPlayer, SLOT(play()));
-            QTimer::singleShot(30000, ui->videoPlayer, SLOT(stop()));
+            QTimer::singleShot(100, this->videoPlayer, SLOT(play()));
+            QTimer::singleShot(30000, this->videoPlayer, SLOT(stop()));
         }
         else
         {
@@ -415,6 +417,14 @@ void Answer::processKeypress(int player)
 {
     if(this->time->elapsed() < 31000)
     {
+        if(this->isVideo == true)
+        {
+            this->videoPlayer->pause();
+        }
+        if (sound)
+        {
+            this->musicPlayer->pause();
+        }
         this->currentPlayer = this->players[player];
         ui->currentPlayer->setText(this->currentPlayer.getName());
 
@@ -533,12 +543,23 @@ void Answer::openDoubleJeopardy()
     this->points = dj->getPoints();
     this->doubleJeopardy = true;
 
+    this->time->restart(); // ignore selection time
+
     this->processKeypress(this->currentPlayerId);
 }
 
 void Answer::on_buttonEnd_clicked()
 {
     this->releaseKeyListener();
+
+    if(this->isVideo == true)
+    {
+        this->videoPlayer->pause();
+    }
+    if (sound)
+    {
+        this->musicPlayer->pause();
+    }
 
     QMessageBox msgBox;
     msgBox.setText("Are you sure?");
@@ -559,6 +580,14 @@ void Answer::on_buttonEnd_clicked()
         }
         this->winner = NO_WINNER;
         done(0);
+    }
+
+    if(isVideo == true) {
+        this->videoPlayer->play(); // resumes
+    }
+    if (sound == true)
+    {
+        musicPlayer->play(); // resume
     }
 }
 
@@ -604,10 +633,25 @@ void Answer::on_buttonWrong_clicked()
         this->winner = NO_WINNER;
         done(0);
     }
+    if(isVideo == true) {
+        this->videoPlayer->play(); // resumes
+    }
+    if (sound == true)
+    {
+        musicPlayer->play(); // resume
+    }
 }
 
 void Answer::on_buttonCancel_clicked()
 {
     this->hideButtons();
     this->releaseKeyListener();
+
+    if(isVideo == true) {
+        this->videoPlayer->play(); // resumes
+    }
+    if (sound == true)
+    {
+        musicPlayer->play(); // resume
+    }
 }
