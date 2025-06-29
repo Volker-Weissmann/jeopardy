@@ -33,6 +33,8 @@
 #include <QDebug>
 #include "answer.h"
 
+#include <algorithm> // for std::min
+
 #define stringify(x) #x
 #define FILE2(a) stringify(ui_answer_qt ## a.h)
 #define FILE(a) FILE2(a)
@@ -123,7 +125,7 @@ void Answer::updateTime()
 {
     int seconds = 31 - this->time->elapsed() / 1000;
     if(seconds >= 0)
-        ui->time->setText(QString("%1").arg(seconds, 2));
+        ui->time->setText(QString("%1").arg(std::min(30, seconds), 2));
     else
         ui->time->setText(QString("Ended..."));
 }
@@ -361,8 +363,8 @@ void Answer::keyPressEvent(QKeyEvent *event)
         {
             this->videoPlayer->stop();
             this->videoPlayer->setPosition(0);
-            QTimer::singleShot(100, ui->videoPlayer, SLOT(play()));
-            QTimer::singleShot(30000, ui->videoPlayer, SLOT(stop()));
+            QTimer::singleShot(100, this->videoPlayer, SLOT(play()));
+            QTimer::singleShot(30000, this->videoPlayer, SLOT(stop()));
         }
         else
         {
@@ -540,6 +542,8 @@ void Answer::openDoubleJeopardy()
     this->currentPlayerId = dj->getPlayer();
     this->points = dj->getPoints();
     this->doubleJeopardy = true;
+
+    this->time->restart(); // ignore selection time
 
     this->processKeypress(this->currentPlayerId);
 }
