@@ -37,6 +37,8 @@
 #include <QTextStream>
 #include <QDebug>
 #include "player.h"
+//#include "jeopardy.h"
+#define MY_FONT "Helvetica [Cronyx]"
 
 namespace Ui {
     class Podium;

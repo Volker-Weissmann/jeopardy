@@ -42,6 +42,8 @@
 #define NUMBER_MAX_CATEGORIES 6
 #define NOT false
 
+#define MY_FONT "Helvetica [Cronyx]"
+
 namespace Ui {
     class Jeopardy;
 }

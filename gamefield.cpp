@@ -26,6 +26,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include "jeopardy.h"
 #include "gamefield.h"
 
 GameField::GameField(QWidget *parent, int round, int categoryNr, Player *players, int playerNr, bool sound, QString fileString) :
@@ -244,6 +245,7 @@ void GameField::setDefaultButtonAppearance(int points, int currentButton)
 
     this->buttons[currentButton]->setFont(font);
     this->buttons[currentButton]->setText(QString("%1").arg(points));
+    this->buttons[currentButton]->setFont(QFont(MY_FONT, 20, QFont::Normal, false));
     this->buttons[currentButton]->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     this->buttons[currentButton]->setStyleSheet("");
     this->buttons[currentButton]->setEnabled(true);
@@ -315,6 +317,7 @@ void GameField::processCategoryLabels()
     QFont font;
     QString categoryName;
     font.setBold(true);
+    font.setPointSize(20);
 
     for(int i = 0; i < this->categoryNr; i++)
     {
@@ -334,10 +337,10 @@ void GameField::processCategoryLabels()
         for(int lineNr = 0; lineNr != categoryLine; lineNr++)
             categoryName = in.readLine();
 
-        this->categoryLabels[i]->setFont(font);
         this->categoryLabels[i]->setGeometry(0, 0, GAMEFIELD_WIDTH / this->categoryNr, CATEGORY_LABEL_HEIGHT);
         this->categoryLabels[i]->setAlignment(Qt::AlignHCenter);
         this->categoryLabels[i]->setText(categoryName);
+        this->categoryLabels[i]->setFont(QFont(MY_FONT, 20, QFont::Bold, false));
     }
 }
 
@@ -354,14 +357,21 @@ void GameField::setLabelColor()
 
 void GameField::setPoints()
 {
-    for(int i = 0; i < this->playerNr; i++)
+    for(int i = 0; i < this->playerNr; i++) {
         this->playerPointsLabels[i]->setText("0");
+        this->playerPointsLabels[i]->setFont(QFont(MY_FONT, 20, QFont::Bold, false));
+    }
 }
 
 void GameField::setNames()
 {
+    QFont font;
+    font.setBold(true);
+    font.setPointSize(20);
+
     for(int i = 0; i < this->playerNr; i++)
     {
+        this->playerNameLabels[i]->setFont(font);
         if(this->currentPlayer == i)
             this->playerNameLabels[i]->setText(QString("%1 ***").arg(this->players[i].getName()));
         else
@@ -378,9 +388,15 @@ void GameField::updateGameFieldValues()
 
 void GameField::updatePointsLabels()
 {
+    QFont font;
+    font.setBold(true);
+    font.setPointSize(20);
+
     for(int i = 0; i < this->playerNr; i++)
     {
         this->playerPointsLabels[i]->setStyleSheet(QString(""));
+        this->playerPointsLabels[i]->setFont(font);
+        this->playerPointsLabels[i]->setFont(QFont(MY_FONT, 20, QFont::Bold, false));
         this->playerPointsLabels[i]->setText(QString::number(this->players[i].getPoints()));
     }
 }
@@ -411,7 +427,7 @@ void GameField::updateCurrentPlayerLabel()
 
 QString GameField::getButtonColorByLastWinner()
 {
-    return QString("QPushButton { background-color : %1; color : black; }").arg(this->players[this->lastWinner].getColor());
+    return QString("QPushButton { background-color : %1; color : black; border: none; }").arg(this->players[this->lastWinner].getColor());
 }
 
 void GameField::openAnswer(int category, int points)

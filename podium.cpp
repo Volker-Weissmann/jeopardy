@@ -26,6 +26,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <QMediaPlayer>
+#include "gamefield.h"
 #include "podium.h"
 
 Podium::Podium(QWidget *parent, Player *players, int playerNr) :
@@ -48,6 +50,7 @@ Podium::~Podium()
 void Podium::init()
 {
     this->window = new QWidget();
+    this->window->setGeometry(0, 0, 1920, 1046);
     this->mainGrid = new QGridLayout;
     this->firstGrid = new QGridLayout();
     this->secondThirdGrid = new QGridLayout();
@@ -58,28 +61,34 @@ void Podium::init()
     this->initLabels();
 
     this->firstGrid->addWidget(this->first);
-    this->mainGrid->addLayout(this->firstGrid, 0, 0, Qt::AlignCenter);
-    this->mainGrid->addLayout(this->secondThirdGrid, 1, 0, Qt::AlignCenter);
+    this->mainGrid->addLayout(this->firstGrid, 0, 0, Qt::AlignmentFlag(0));
+    this->mainGrid->addLayout(this->secondThirdGrid, 1, 0, Qt::AlignmentFlag(0));
     this->window->setLayout(this->mainGrid);
     this->window->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
 void Podium::initLabels()
 {
+    QFont font;
+    font.setBold(true);
+    font.setPointSize(20);
+
     this->first->setAlignment(Qt::AlignCenter);
-    this->first->setFont(QFont("Helvetica [Cronyx]", 23, QFont::Bold, false));
-    this->first->setMinimumSize(650, 200);
-    this->first->setMaximumSize(650, 200);
+    this->first->setFont(font);
+    this->first->setMinimumSize(650, 150);
+    this->first->setMaximumSize(650, 150);
     this->first->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     this->second->setAlignment(Qt::AlignCenter);
-    this->second->setFont(QFont("Helvetica [Cronyx]", 17, -1, false));
+    this->second->setFont(QFont(MY_FONT, 17, -1, false));
+    this->second->setFont(font);
     this->second->setMinimumSize(500, 150);
     this->second->setMaximumSize(500, 150);
     this->second->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     this->third->setAlignment(Qt::AlignCenter);
-    this->third->setFont(QFont("Helvetica [Cronyx]", 12, -1, false));
+    this->third->setFont(QFont(MY_FONT, 13, -1, false));
+    this->third->setFont(font);
     this->third->setMinimumSize(500, 150);
     this->third->setMaximumSize(500, 150);
     this->third->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -90,7 +99,13 @@ void Podium::showPodium()
     this->init();
     this->sort();
 
+    QFont font;
+    font.setBold(true);
+    font.setPointSize(20);
+
     this->first->setStyleSheet(this->getLabelColorString(0));
+    this->first->setFont(font);
+    this->first->setFont(QFont(MY_FONT, 20, QFont::Bold, false));
     if(this->playerNr == 1)
         this->first->setText(QString("Guess who won... :)"));
     else
@@ -99,8 +114,9 @@ void Podium::showPodium()
     if(this->playerNr > 1)
     {
         this->second->setStyleSheet(this->getLabelColorString(1));
+	this->second->setFont(font);
         this->second->setText(QString("2. %1<br>%2").arg(this->players[1].getName()).arg(this->players[1].getPoints()));
-        this->secondThirdGrid->addWidget(this->second, 1, 0, Qt::AlignCenter);
+        this->secondThirdGrid->addWidget(this->second, 1, 0, Qt::AlignmentFlag(0));
     }
     else
         this->second->setVisible(false);
@@ -108,8 +124,9 @@ void Podium::showPodium()
     if(this->playerNr > 2)
     {
         this->third->setStyleSheet(this->getLabelColorString(2));
+	this->third->setFont(font);
         this->third->setText(QString("3. %1<br>%2").arg(this->players[2].getName()).arg(this->players[2].getPoints()));
-        this->secondThirdGrid->addWidget(this->third, 1, 1, Qt::AlignCenter);
+        this->secondThirdGrid->addWidget(this->third, 1, 1, Qt::AlignmentFlag(0));
     }
     else
     {
@@ -117,8 +134,8 @@ void Podium::showPodium()
         this->third->setVisible(false);
     }
 
-    //if(this->playerNr > 1)
-    //    this->saveScore();
+    if(this->playerNr > 1)
+        this->saveScore();
 
     this->window->show();
 }

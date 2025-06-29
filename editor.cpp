@@ -27,6 +27,7 @@
  */
 
 #include <QEvent>
+#include "jeopardy.h"
 #include "editor.h"
 
 Editor::Editor(QWidget *parent, Player *players, int playerNr):
@@ -98,8 +99,8 @@ void Editor::assignPlayerPointsLines()
     {
         this->playerPointsLines[i] = new QSpinBox();
         this->playerPointsLines[i]->setSingleStep(50);
-        this->playerPointsLines[i]->setMinimum(-50000);
-        this->playerPointsLines[i]->setMaximum(50000);
+        this->playerPointsLines[i]->setMinimum(-5000);
+        this->playerPointsLines[i]->setMaximum(5000);
         this->lineGrid->addWidget(this->playerPointsLines[i], i, 1);
     }
 }
@@ -132,7 +133,9 @@ void Editor::showValues()
     for(int i = 0; i < this->playerNr; i++)
     {
         this->playerNamesLines[i]->setText(this->players[i].getName());
+        this->playerNamesLines[i]->setFont(QFont(MY_FONT, 200, QFont::Bold, false));
         this->playerPointsLines[i]->setValue(this->players[i].getPoints());
+        this->playerPointsLines[i]->setFont(QFont(MY_FONT, 20, QFont::Bold, false));
     }
 }
 

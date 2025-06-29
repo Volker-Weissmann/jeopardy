@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     a.setWindowIcon(QIcon("images/icon.svg"));
+    // this will override *ALL* explicit font settings just for the sake of QInputDialog:-(
+    // QApplication::setFont(QFont(MY_FONT, 20, QFont::Bold, false));
     Jeopardy w;
     w.init();
     return a.exec();

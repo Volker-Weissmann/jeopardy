@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>998</width>
-    <height>615</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,14 +18,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>998</width>
-    <height>615</height>
+    <width>1920</width>
+    <height>1046</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>998</width>
-    <height>615</height>
+    <width>1920</width>
+    <height>1046</height>
    </size>
   </property>
   <property name="cursor">
@@ -45,7 +45,7 @@
    <property name="geometry">
     <rect>
      <x>690</x>
-     <y>570</y>
+     <y>960</y>
      <width>85</width>
      <height>32</height>
     </rect>
@@ -58,7 +58,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Andale Mono</family>
+     <family>Helvetica [Cronyx]</family>
      <pointsize>14</pointsize>
      <weight>50</weight>
      <bold>false</bold>
@@ -75,7 +75,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>570</y>
+     <y>960</y>
      <width>85</width>
      <height>32</height>
     </rect>
@@ -88,7 +88,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Andale Mono</family>
+     <family>Helvetica [Cronyx]</family>
      <pointsize>14</pointsize>
      <weight>50</weight>
      <bold>false</bold>
@@ -105,7 +105,7 @@
    <property name="geometry">
     <rect>
      <x>800</x>
-     <y>570</y>
+     <y>960</y>
      <width>85</width>
      <height>32</height>
     </rect>
@@ -118,7 +118,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Andale Mono</family>
+     <family>Helvetica [Cronyx]</family>
      <pointsize>14</pointsize>
      <weight>50</weight>
      <bold>false</bold>
@@ -136,8 +136,8 @@
     <rect>
      <x>9</x>
      <y>9</y>
-     <width>981</width>
-     <height>521</height>
+     <width>1920</width>
+     <height>900</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -148,7 +148,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Andale Mono</family>
+     <family>Helvetica [Cronyx]</family>
      <pointsize>28</pointsize>
      <weight>50</weight>
      <bold>false</bold>
@@ -182,12 +182,12 @@
      <x>740</x>
      <y>530</y>
      <width>208</width>
-     <height>31</height>
+     <height>80</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Andale Mono</family>
+     <family>Helvetica [Cronyx]</family>
      <pointsize>20</pointsize>
     </font>
    </property>
@@ -204,8 +204,8 @@
   <widget class="QPushButton" name="buttonCancel">
    <property name="geometry">
     <rect>
-     <x>910</x>
-     <y>570</y>
+     <x>1800</x>
+     <y>960</y>
      <width>85</width>
      <height>32</height>
     </rect>
@@ -218,7 +218,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Andale Mono</family>
+     <family>Helvetica [Cronyx]</family>
      <pointsize>14</pointsize>
      <weight>50</weight>
      <bold>false</bold>
@@ -236,8 +236,8 @@
     <rect>
      <x>1</x>
      <y>1</y>
-     <width>997</width>
-     <height>531</height>
+     <width>1920</width>
+     <height>900</height>
     </rect>
    </property>
    <property name="alignment">
@@ -249,8 +249,8 @@
     <rect>
      <x>9</x>
      <y>9</y>
-     <width>981</width>
-     <height>511</height>
+     <width>1880</width>
+     <height>900</height>
     </rect>
    </property>
    <property name="cursor">
