@@ -415,6 +415,14 @@ void Answer::processKeypress(int player)
 {
     if(this->time->elapsed() < 31000)
     {
+        if(this->isVideo == true)
+        {
+            this->videoPlayer->pause();
+        }
+        if (sound)
+        {
+            this->musicPlayer->pause();
+        }
         this->currentPlayer = this->players[player];
         ui->currentPlayer->setText(this->currentPlayer.getName());
 
@@ -540,6 +548,15 @@ void Answer::on_buttonEnd_clicked()
 {
     this->releaseKeyListener();
 
+    if(this->isVideo == true)
+    {
+        this->videoPlayer->pause();
+    }
+    if (sound)
+    {
+        this->musicPlayer->pause();
+    }
+
     QMessageBox msgBox;
     msgBox.setText("Are you sure?");
     msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::Abort);
@@ -559,6 +576,14 @@ void Answer::on_buttonEnd_clicked()
         }
         this->winner = NO_WINNER;
         done(0);
+    }
+
+    if(isVideo == true) {
+        this->videoPlayer->play(); // resumes
+    }
+    if (sound == true)
+    {
+        musicPlayer->play(); // resume
     }
 }
 
@@ -604,10 +629,25 @@ void Answer::on_buttonWrong_clicked()
         this->winner = NO_WINNER;
         done(0);
     }
+    if(isVideo == true) {
+        this->videoPlayer->play(); // resumes
+    }
+    if (sound == true)
+    {
+        musicPlayer->play(); // resume
+    }
 }
 
 void Answer::on_buttonCancel_clicked()
 {
     this->hideButtons();
     this->releaseKeyListener();
+
+    if(isVideo == true) {
+        this->videoPlayer->play(); // resumes
+    }
+    if (sound == true)
+    {
+        musicPlayer->play(); // resume
+    }
 }
