@@ -457,6 +457,7 @@ void Answer::showButtons()
     ui->buttonRight->setVisible(true);
     ui->buttonWrong->setVisible(true);
     ui->currentPlayer->setVisible(true);
+    ui->currentPlayer->raise();
 }
 
 void Answer::hideButtons()
