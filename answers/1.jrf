@@ -15,7 +15,7 @@ Image-Examples
 200: [img]1.jpg                         ## [img] tag must be at the beginning. Don't mix an image with text ##
 300: [img]1.jpg                         ## Image will be resized if too big ##
 400: [img]1.jpg                         ## Other file formats than jpg (should) work too ##
-500:
+500: [img]big.jpg                       ## so big, it hides everything ##
 Sound-Examples
 100: [sound]1.wav                       ## Soundfile behind [sound] tag must be placed in answers/round/ e.g. [sound]1.wav lays in answers/1/1.wav ##
 200: [sound]1.wav                       ## Don't mix sound with text ##
